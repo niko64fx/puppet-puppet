@@ -1,0 +1,14 @@
+
+[main]
+    vardir          = /var/lib/puppet
+    logdir          = /var/log/puppet
+    rundir          = /var/run/puppet
+    ssldir          = $vardir/ssl
+    privatekeydir   = $ssldir/private_keys { group = service }
+    hostprivkey     = $privatekeydir/$certname.pem { mode = 640 }
+    autosign        = $confdir/autosign.conf { mode = 664 }
+    show_diff       = false
+    hiera_config    = $confdir/hiera.yaml
+    environmentpath = /etc/puppet/environments
+    basemodulepath  = /etc/puppet/environments/common:/etc/puppet/modules:/usr/share/puppet/modules
+    pluginsync      = true
