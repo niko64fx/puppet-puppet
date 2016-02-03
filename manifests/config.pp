@@ -24,14 +24,6 @@ class puppet::config (
     order   => '02'
   }
 
-  if $::hostgroup == 'puppet_master' {
-    concat::fragment { 'puppet.conf [master] section':
-      target  => "${config_file_path}/${config_file_name}",
-      content => template('puppet/puppet_conf_master.erb'),
-      order   => '03'
-    }
-  }
-
   concat::fragment { 'puppet.conf [agent] section':
     target  => "${config_file_path}/${config_file_name}",
     content => template('puppet/puppet_conf_agent.erb'),
