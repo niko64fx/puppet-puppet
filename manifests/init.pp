@@ -12,7 +12,7 @@ class puppet (
   $service_name_agent    = 'puppet',
   $service_ensure_agent  = running,
   $service_enabled_agent = true,
-  $brsnoop               = $::clientnoop,
+  $if_noop               = $::clientnoop,
 ) {
 
   class { '::puppet::install': } ->

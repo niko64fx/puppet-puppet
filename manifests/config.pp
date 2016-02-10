@@ -4,7 +4,7 @@ class puppet::config (
   $config_puppet_server = $puppet::config_puppet_server,
   $config_runinterval   = $puppet::config_runinterval,
   $config_noop          = $puppet::config_noop,
-  $brsnoop              = $puppet::brsnoop,
+  $if_noop              = $puppet::if_noop,
 ) inherits puppet {
 
   # We create the puppet.conf target
@@ -33,7 +33,7 @@ class puppet::config (
   if $::operatingsystem == 'Debian' {
     augeas { 'enable puppet agent service management on Debian':
       changes => [ 'set /files/etc/default/puppet/START "yes"' ],
-      noop    => $brsnoop,
+      noop    => $if_noop,
     }
   }
 
