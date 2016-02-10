@@ -29,7 +29,7 @@ The `puppet::agent` module manages the `[main]` and `[agent]` sections of the pu
 to deactivate the noop run on a machine:
 
 ```YAML
-puppet::config::noop: 'false'
+puppet::config::if_noop: 'false'
 ```
 
 ####Puppet server
