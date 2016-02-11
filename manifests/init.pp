@@ -11,7 +11,7 @@ class puppet (
   $config_noop           = true,
   $service_name_agent    = 'puppet',
   $service_ensure_agent  = running,
-  $service_enabled_agent = true,
+  $service_enable_agent  = true,
   $if_noop               = $::clientnoop,
 ) {
 
